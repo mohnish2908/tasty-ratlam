@@ -4,7 +4,7 @@ const OTP = require("../models/OTP");
 const jwt = require("jsonwebtoken");
 const otpGenerator = require("otp-generator");
 const Admin = require("../models/Admin");
-var unirest = require("unirest");
+
 require("dotenv").config();
 
 // Function to generate OTP
