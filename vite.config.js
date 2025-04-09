@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: '../',         // ⬅️ Output the build files to root directory
-    emptyOutDir: false     // ⬅️ Don't delete the server folder during build
+    outDir: 'dist',     // ✅ Safe, standard directory
+    emptyOutDir: true,  // ✅ Clean old builds from dist
   }
 })
