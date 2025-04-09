@@ -10,20 +10,20 @@ exports.createCoupon = async (req, res) => {
         // const condition=newCoupon.condition;    
         // const description=newCoupon.description;
         const existingCoupon = await Coupon.findOne({ code: code.toLowerCase() });
-        console.log(1)
+        // console.log(1)
         if (existingCoupon) {
             return res.status(400).json({ error: "Coupon code already exists." });
         }
-        console.log(2)
+        // console.log(2)
         // code=code.toLowerCase();
-        console.log(3)
+        // console.log(3)
         if(!code||!discountPercentage||!condition||!description){
             return res.status(400).json({ error: "Please provide all the required fields." });
         }
-        console.log(4)  
+        // console.log(4)  
         const coupon = await Coupon.create({ code:code.toLowerCase(), discountPercentage, condition, description });
-        console.log(5)
-        console.log(coupon);
+        // console.log(5)
+        // console.log(coupon);
         return res.status(201).json({ success: true, data: coupon,message:"Coupon created successfully" });
     }
     catch{
