@@ -22,7 +22,15 @@ database.connect();
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "*", credentials: true }));
+// app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({
+   origin: [
+     "http://localhost:3000", // Local frontend (adjust if needed)
+     "http://yourfrontenddomain.com", // Replace with your actual frontend domain
+     "http://51.20.254.92" // Server IP if frontend is accessing backend via this
+   ],
+   credentials: true,
+ }));
 app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));
 app.use(express.urlencoded({ extended: true }));
 
